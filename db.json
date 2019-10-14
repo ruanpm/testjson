@@ -4,10 +4,12 @@
             {
                 "year": "2018",
                 "results": {
-                            "entertainment": {
-                                              "summary": "In  January  2018  - Timelines in BBC - The MW transmissions of BBC Radios Sussex, Surrey, Humberside, Wiltshire, Nottingham, Kent and Lincolnshire end and MW coverage for BBC Devon, Lancashire and Essex is reduced. Altogether a total of 13 MW transmitters are switched off.",
-                                              "date": "2018-01-15T05:00:00Z"
-                            } 
+                            "entertainment": [
+                                              {
+                                                "summary": "In  January  2018  - Timelines in BBC - The MW transmissions of BBC Radios Sussex, Surrey, Humberside, Wiltshire, Nottingham, Kent and Lincolnshire end and MW coverage for BBC Devon, Lancashire and Essex is reduced. Altogether a total of 13 MW transmitters are switched off.",
+                                                "date": "2018-01-15T05:00:00Z"
+                                              }
+                            ]
                 }
             }
           ]
