@@ -1,11 +1,10 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "hello"
-    }
-  ],
-  "profile": {
-    "name": "typicode"
+  "content": {
+        "days_in_history": [
+            {
+                "year": "2018",
+                "results": null
+            }
+          ]
   }
 }
