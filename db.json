@@ -3,7 +3,9 @@
         "days_in_history": [
             {
                 "year": "2018",
-                "results": null
+                "results": {
+                            "entertainment": null 
+                }
             }
           ]
   }
