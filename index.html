@@ -28,7 +28,7 @@
    <h3 align="center">Finding NCM code by product description</h3>   
    <br /><br />
    <div align="center">
-    <input type="text" name="search" id="search" placeholder="Search product" class="form-control" />
+    <input type="text" name="search" id="search" placeholder="Search product name" class="form-control" />
    </div>
    <ul class="list-group" id="result"></ul>
    <br />
@@ -44,32 +44,64 @@ var array = null;
 $(document).ready(function(){
  $.ajaxSetup({ cache: false });
  $('#search').keyup(function(){
+    request();
+ });
+ 
+ $('#result').on('click', 'li', function() {
+  var click_text = $(this).text().split('-');
+  click_text = click_text[0].split(' ');
+  $('#search').val($.trim(click_text[1]));
+  $("#result").html('');
+ });
+});
+
+
+var request = async function() {
+
+  var searchField = $('#search').val();
+  if(searchField.length < 1) {
+    return;
+  }
+
   $('#result').html('');
   $('#state').val('');
-  var searchField = $('#search').val();
-  var expression = new RegExp(searchField, "i");
-  $.getJSON('https://raw.githubusercontent.com/ruanpm/testjson/master/db.json', function(data) {
+
+  if(array) {
+    handleData(array, searchField);
+    return;
+  }
+
+
+  //var expression = new RegExp(searchField, "i");
+  $.getJSON('https://raw.githubusercontent.com/ruanpm/testjson/master/db.json').then(function(data) {
     // if already downloaded data reuses it
     if(!array) {
       array = data.data;
     }
   
-    for(var i = 0; i < array.length; i++) {
+    handleData(array, searchField);
+  });
+}
+
+
+
+
+var handleData = async function(array, searchField) {
+  var counterShowResult = 0;
+
+  for(var i = 0; i < array.length; i++) {
+
       jsonObj = array[i]
 
       var desc = jsonObj['DESCRICAO'];
        //console.log(desc)
       if(desc.toLowerCase().indexOf(searchField) !== -1) {
-        $('#result').append('<li class="list-group-item link-class"><img src="https://image.flaticon.com/icons/png/512/126/126165.png" height="40" width="40" class="img-thumbnail" /> '+ desc +' | <span class="text-muted">'+ 'lalallala' +'</span></li>'); 
+        counterShowResult = counterShowResult + 1;
+        if(counterShowResult === 15) break;
+        //$('#result').append('<li class="list-group-item link-class"><img src="https://image.flaticon.com/icons/png/512/126/126165.png" height="40" width="40" class="img-thumbnail" /> '+ 'NCM ' + desc +' | <span class="text-muted">'+ 'lalallala' +'</span></li>');
+        $('#result').append('<li class="list-group-item link-class">' + '<span><b>' + 'NCM ' + desc + '</b></span>' + '<div class="text-muted">'+ jsonObj['CATEGORIA'] +'</div></li>'); 
       }
-    }
-  });
- });
- 
- $('#result').on('click', 'li', function() {
-  var click_text = $(this).text().split('|');
-  $('#search').val($.trim(click_text[0]));
-  $("#result").html('');
- });
-});
+  }
+}
+
 </script>
