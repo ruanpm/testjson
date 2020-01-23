@@ -94,6 +94,8 @@ var request = async function() {
 var handleData = async function(array, searchField) {
   var counterShowResult = 0;
 
+  $('#test').append('ohohohoh')
+
   for(var i = 0; i < array.length; i++) {
 
       jsonObj = array[i]
@@ -101,6 +103,7 @@ var handleData = async function(array, searchField) {
       var desc = jsonObj['DESCRICAO'];
        //console.log(desc)
       if(desc.toLowerCase().indexOf(searchField) !== -1) {
+        $('#test').append('hehehheheh')
         counterShowResult = counterShowResult + 1;
         if(counterShowResult === 15) break;
        
