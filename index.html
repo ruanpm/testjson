@@ -23,8 +23,8 @@
  </head>
  <body>
   <br /><br />
-  <div class="container" style="width:100%;">
-   <h2 align="center">Export Matcher</h2>
+  <div class="container" style="width:90%;">
+   <h2 align="center" id='test'>Export Matcher</h2>
    <h3 align="center">Finding NCM code by product description</h3>   
    <br /><br />
    <div align="center">
@@ -74,7 +74,7 @@ var request = async function() {
 
   //var expression = new RegExp(searchField, "i");
   $.getJSON('https://raw.githubusercontent.com/ruanpm/testjson/master/db.json').then(function(data) {
-    alert('yep')
+    $('#test').text(new Date)
     // if already downloaded data reuses it
     if(!array) {
       array = data.data;
