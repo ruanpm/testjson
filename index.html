@@ -105,7 +105,8 @@ var handleData = function(array, searchField) {
 
        //console.log(desc)
 
-       alert('this is ruan'.indexOf('ruan'));
+       alert(desc.toLowerCase().indexOf(searchField));
+       break;
 
       if(desc.toLowerCase().indexOf(searchField) != -1) {
         $('#test').append('OLOCO' + searchField);
