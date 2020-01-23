@@ -101,7 +101,7 @@ var handleData = function(array, searchField) {
       jsonObj = array[i];
 
       var desc = jsonObj['DESCRICAO'];
-      $('#test').append(desc);
+      $('#test').append(searchField);
 
        //console.log(desc)
       if(desc.toLowerCase().indexOf(searchField) !== -1) {
