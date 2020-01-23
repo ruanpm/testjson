@@ -101,15 +101,10 @@ var handleData = function(array, searchField) {
       jsonObj = array[i];
 
       var desc = jsonObj['DESCRICAO'];
-      
 
-       //console.log(desc)
-       alert(desc.toLowerCase())
-       alert(searchField)
-       alert(desc.toLowerCase().indexOf(searchField));
-       break;
+      desc = desc.toLowerCase();
 
-      if(desc.toLowerCase().indexOf(searchField) != -1) {
+      if(desc.indexOf(searchField) != -1) {
         $('#test').append('OLOCO' + searchField);
         counterShowResult = counterShowResult + 1;
         if(counterShowResult === 15) break;
