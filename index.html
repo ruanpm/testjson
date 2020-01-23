@@ -73,8 +73,12 @@ var request = async function() {
   }
 
 
+  $('#test').append('ruan')
+
   //var expression = new RegExp(searchField, "i");
   $.getJSON('https://raw.githubusercontent.com/ruanpm/testjson/master/db.json').then(function(data) {
+     $('#test').append('resultado')
+
     // if already downloaded data reuses it
     if(!array) {
       array = data.data;
@@ -99,7 +103,7 @@ var handleData = async function(array, searchField) {
       if(desc.toLowerCase().indexOf(searchField) !== -1) {
         counterShowResult = counterShowResult + 1;
         if(counterShowResult === 15) break;
-        $('#test').append(desc)
+       
 
         //$('#result').append('<li class="list-group-item link-class"><img src="https://image.flaticon.com/icons/png/512/126/126165.png" height="40" width="40" class="img-thumbnail" /> '+ 'NCM ' + desc +' | <span class="text-muted">'+ 'lalallala' +'</span></li>');
         //$('#result').append('<li class="list-group-item link-class">' + '<span><b>' + 'NCM ' + desc + '</b></span>' + '<div class="text-muted">'+ jsonObj['CATEGORIA'] +'</div></li>');
