@@ -94,16 +94,17 @@ var request = async function() {
 var handleData = function(array, searchField) {
   var counterShowResult = 0;
 
-  $('#test').append('ohohohoh ' + array.length)
+  $('#test').append('ohohohoh ' + array.length);
 
   for(var i = 0; i < array.length; i++) {
 
-      jsonObj = array[i]
+      jsonObj = array[i];
 
       var desc = jsonObj['DESCRICAO'];
+      $('#test').append(desc);
+
        //console.log(desc)
       if(desc.toLowerCase().indexOf(searchField) !== -1) {
-        $('#test').append('hehehheheh')
         counterShowResult = counterShowResult + 1;
         if(counterShowResult === 15) break;
        
