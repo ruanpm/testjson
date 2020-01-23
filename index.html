@@ -102,13 +102,9 @@ var handleData = function(array, searchField) {
 
       var desc = jsonObj['DESCRICAO'];
 
-      desc = desc.toLowerCase();
-
-      if(desc.indexOf(searchField) != -1) {
-        $('#test').append('OLOCO' + searchField);
+      if(desc.toLowerCase().indexOf(searchField.toLowerCase()) != -1) {
         counterShowResult = counterShowResult + 1;
         if(counterShowResult === 15) break;
-       
 
         //$('#result').append('<li class="list-group-item link-class"><img src="https://image.flaticon.com/icons/png/512/126/126165.png" height="40" width="40" class="img-thumbnail" /> '+ 'NCM ' + desc +' | <span class="text-muted">'+ 'lalallala' +'</span></li>');
         $('#result').append('<li class="list-group-item link-class">' + '<span><b>' + 'NCM ' + desc + '</b></span>' + '<div class="text-muted">'+ jsonObj['CATEGORIA'] +'</div></li>');
