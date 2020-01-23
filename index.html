@@ -24,13 +24,14 @@
  <body>
   <br /><br />
   <div class="container" style="width:40%;">
-   <h2 align="center" id='test'>Export Matcher</h2>
+   <h2 align="center">Export Matcher</h2>
    <h3 align="center">Finding NCM code by product description</h3>   
    <br /><br />
    <div align="center">
     <input type="text" name="search" id="search" placeholder="Search product name" class="form-control" />
    </div>
    <ul class="list-group" id="result"></ul>
+   <div id='test'></div>
    <br />
   </div>
  </body>
@@ -74,7 +75,6 @@ var request = async function() {
 
   //var expression = new RegExp(searchField, "i");
   $.getJSON('https://raw.githubusercontent.com/ruanpm/testjson/master/db.json').then(function(data) {
-    $('#test').text(new Date)
     // if already downloaded data reuses it
     if(!array) {
       array = data.data;
@@ -99,8 +99,10 @@ var handleData = async function(array, searchField) {
       if(desc.toLowerCase().indexOf(searchField) !== -1) {
         counterShowResult = counterShowResult + 1;
         if(counterShowResult === 15) break;
+        $('#test').append(desc)
+
         //$('#result').append('<li class="list-group-item link-class"><img src="https://image.flaticon.com/icons/png/512/126/126165.png" height="40" width="40" class="img-thumbnail" /> '+ 'NCM ' + desc +' | <span class="text-muted">'+ 'lalallala' +'</span></li>');
-        $('#result').append('<li class="list-group-item link-class">' + '<span><b>' + 'NCM ' + desc + '</b></span>' + '<div class="text-muted">'+ jsonObj['CATEGORIA'] +'</div></li>'); 
+        //$('#result').append('<li class="list-group-item link-class">' + '<span><b>' + 'NCM ' + desc + '</b></span>' + '<div class="text-muted">'+ jsonObj['CATEGORIA'] +'</div></li>');
       }
   }
 }
