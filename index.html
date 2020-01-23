@@ -91,10 +91,10 @@ var request = async function() {
 
 
 
-var handleData = async function(array, searchField) {
+var handleData = function(array, searchField) {
   var counterShowResult = 0;
 
-  $('#test').append('ohohohoh')
+  $('#test').append('ohohohoh ' + array.length)
 
   for(var i = 0; i < array.length; i++) {
 
